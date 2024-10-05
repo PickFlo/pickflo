@@ -1,7 +1,9 @@
 package com.pickflo.domain;
 
 import java.sql.Timestamp;
+import java.time.LocalDate;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,12 +24,18 @@ public class UserStatistics {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
-	private String userGroup;
-	private int pageView;
-	private int scrollCount;
-	private Integer likeEvent;
-	private Integer unlikeEvent;
 	
-    private Timestamp lastUpdated; // 마지막 업데이트 시간
+	private String userGroup;
+	private int stayTime;
+	private int scrollCount;
+	private Integer likeCount;
+	private Integer unlikeCount;
+    private Timestamp lastUpdated;
+    
+    @Column(name = "stats_date", insertable = false, updatable = false)
+    private LocalDate statsDate;
+    
+    @Column(name = "stats_week", insertable = false, updatable = false)
+    private Integer statsWeek;
+    
 }

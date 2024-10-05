@@ -116,7 +116,7 @@ function saveUserData(userGroup, actionType) {
 function handleFavoriteClick() {
 	
 	const iconHeart = document.getElementById('iconHeart');
-	let userGroup = (currentUserId % 2 === 0) ? 'bGroup' : 'aGroup';
+	let userGroup = (currentUserId % 2 === 0) ? 'B' : 'A';
 	
 	console.log("Movie ID:", currentMovieId);
 	console.log("User ID:", currentUserId);
@@ -132,7 +132,7 @@ function handleFavoriteClick() {
 				iconHeart.classList.remove('fa-regular', 'fa-heart');
 				iconHeart.classList.add('fa-solid', 'fa-heart');
 				iconHeart.style.color = 'red';
-				saveUserData(userGroup, 'like_event');				
+				saveUserData(userGroup, 'like');				
 				console.log("추가 성공");
 
 				if (window.location.pathname === '/pickflo/movie/like') {
@@ -154,7 +154,7 @@ function handleFavoriteClick() {
 					iconHeart.classList.remove('fa-solid', 'fa-heart');
 					iconHeart.classList.add('fa-regular', 'fa-heart');
 					iconHeart.style.color = '#ffffff';
-					saveUserData(userGroup, 'unlike_event'); 
+					saveUserData(userGroup, 'unlike'); 
 					console.log("해제 성공");
 									
 					if (window.location.pathname === '/pickflo/movie/like') {

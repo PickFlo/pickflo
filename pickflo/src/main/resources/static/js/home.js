@@ -1,27 +1,21 @@
-/**
- * home.html
- */
-
 document.addEventListener('DOMContentLoaded', function() {
 	let startRow = 0;
 	let endRow = startRow + 21;
 	let isLoading = false;
+	let stayTime = 0; // 체류 시간 변수
+	let stayStartTime; // 페이지 로드 시각
 
 	// 페이지에서 userId를 전달받아 설정
 	const userId = parseInt(document.getElementById('userId').value);
 	const apiUrl = userId % 2 === 0 ? '/pickflo/api/recMovies/home_B' : '/pickflo/api/recMovies/home_A';
 
+	let userGroup = (userId % 2 === 0) ? 'B' : 'A';
 
-	let userGroup = (userId % 2 === 0) ? 'bGroup' : 'aGroup';
-
-		if (userGroup === 'aGroup') {
-			document.body.style.backgroundColor = '#141414'; // 기본 배경색
-			
-		} else {
-			document.body.style.background = 'linear-gradient(to bottom, #141414, #8A2BE2)';
-
-			
-		}
+	if (userGroup === 'A') {
+		document.body.style.backgroundColor = '#141414'; 
+	} else {
+		document.body.style.background = 'linear-gradient(to bottom, #141414, #8A2BE2)';
+	}
 	
 	function loadMovies() {
 		if (isLoading) return;
@@ -52,7 +46,6 @@ document.addEventListener('DOMContentLoaded', function() {
 						img.setAttribute('data-bs-target', '#modalMovieDetails');
 
 						movieCard.appendChild(img);
-
 						movieListDiv.appendChild(movieCard);
 					});
 					startRow = endRow + 1;
@@ -77,15 +70,16 @@ document.addEventListener('DOMContentLoaded', function() {
 	window.addEventListener('scroll', () => {
 		if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
 			loadMovies();
-			saveUserData(userGroup, 'scroll');
+			saveUserData(userId, userGroup, 'scroll');
 		}
 	});
 	
-
-	function saveUserData(userGroup, actionType) {
+	function saveUserData(userId, userGroup, actionType) {
 		const userData = {
+			userId: userId,
 			userGroup: userGroup,
-			actionType: actionType
+			actionType: actionType,
+			stayTime: stayTime // 체류 시간을 추가
 		};
 
 		// 서버에 POST 요청
@@ -97,10 +91,15 @@ document.addEventListener('DOMContentLoaded', function() {
 				console.error('Error saving user data:', error);
 			});
 	}
-
-	// 페이지 방문 이벤트 전송
-	saveUserData(userGroup, 'page_view');
-
 	
+	// 페이지 로드 시각 기록
+	stayStartTime = Date.now();
+
+	// 페이지를 떠날 때 stayTime을 저장
+	window.addEventListener('beforeunload', () => {
+		// 체류 시간 계산 (초 단위로)
+		stayTime = Math.floor((Date.now() - stayStartTime) / 1000); // 밀리초를 초로 변환
+		saveUserData(userId, userGroup, 'stayTime'); // stayTime 저장
+	});
 
 });
