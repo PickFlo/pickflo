@@ -1,0 +1,187 @@
+@charset "UTF-8";
+
+@import
+	url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css')
+	;
+
+@font-face {
+	font-family: 'PartialSansKR-Regular';
+	src:
+		url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/PartialSansKR-Regular.woff2')
+		format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* 배경 이미지 및 오버레이 스타일 */
+.background-container {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	background-image: url('/images/main.png');
+	background-size: 120%;
+	background-position: center;
+	overflow: hidden;
+}
+
+/* 배경 이미지 위의 어두운 오버레이 */
+.overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.7); /* 검정색 반투명 오버레이 */
+	z-index: 1; /* 오버레이가 배경 이미지 위에 위치하도록 */
+}
+
+html, body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	margin: 0;
+	background-color: #000 !important;
+	color: #fff !important;
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	background-color: #000;
+	color: #fff;
+	position: relative; /* 상대적 위치 설정으로 오버레이 위에 표시 */
+	z-index: 2; /* main이 오버레이 위에 위치하도록 */
+	background-color: transparent; /* 배경색을 투명으로 설정 */
+}
+
+#logo {
+	text-align: center; /* 부모 div 중앙 정렬 */
+	margin: 20px 0;
+	width: 100%;
+}
+
+#logo {
+	font-family: 'PartialSansKR-Regular', Arial, sans-serif;
+	font-size: 3em;
+	font-weight: normal;
+	background-color: transparent;
+	color: #E50913;
+}
+
+.signin-link {
+	text-decoration: none;
+}
+
+main .card {
+	width: 400px;
+	padding: 30px;
+	border: none;
+	background-color: #000;
+	color: #fff;
+}
+
+.card input {
+	height: 50px;
+	margin-bottom: 30px;
+	border: none;
+	border-radius: 0;
+	border-bottom: 2px solid #fff;
+	background-color: transparent;
+	color: #fff;
+}
+
+.form-control::placeholder {
+	color: white !important;
+	opacity: 1 !important;
+}
+
+#email, #password {
+	border: none;
+	border-radius: 0;
+	border-bottom: 2px solid #fff;
+	background-color: #000; /* 배경 검정색 */
+	color: #fff; /* 기본 폰트 색상 흰색 */
+}
+
+.card input:focus {
+	outline: none;
+	box-shadow: none; /* 테두리 외곽에 생기는 그림자 제거 */
+}
+
+#btnSignIn {
+	height: 40px;
+	margin-top: 40px;
+	margin-bottom: 20px;
+	background-color: #E50913;
+	color: white;
+}
+
+#linkSignUp {
+	text-decoration: none;
+	background-color: #E50913;
+	color: white;
+	padding: 8px 20px;
+}
+
+.card .btn {
+	background-color: #E50913;
+	color: white;
+	border: none;
+}
+
+.card .btn:hover, #btnSignIn:hover, #linkSignUp:hover {
+	background-color: #e50913a6;
+	color: white;
+	border: none;
+	outline: none;
+}
+
+a {
+	text-decoration: none;
+	color: inherit; /* 부모 요소의 색상 상속 */
+	border: none;
+	outline: none;
+}
+
+.form-control .btn a:focus {
+	outline: none; /* 포커스 시 네모 테두리 제거 */
+	box-shadow: none; /* 포커스 시 박스 그림자 제거 */
+}
+
+.footerContents {
+	position: relative;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: transparent;
+	color: #fff;
+	text-align: center;
+	padding: 50px;
+}
+
+@media ( max-width : 768px) {
+	.background-container {
+		background-size: 200%;
+	}
+	.card.card-body {
+		width: 100%;
+	}
+	#logo {
+		margin: 20px 0;
+	}
+}
+
+@media ( min-width : 768px) and (max-width: 1366px) {
+	main .card {
+		width: 120%;
+		padding: 20px;
+	}
+	main {
+		margin-top: 80px;
+	}
+}

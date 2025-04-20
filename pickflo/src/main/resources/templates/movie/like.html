@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<!-- <th:block th:replace="~{/layout/fragments :: documentHeader}"></th:block> -->
+<th:block th:replace="~{layout/fragments :: documentHeader}"></th:block>
+<link href="/css/fragments.css" rel="stylesheet" />
+<link href="/css/movie-like.css" rel="stylesheet" />
+<link href="/css/list.css" rel="stylesheet" />
+
+<link href="/css/movie-details.css" rel="stylesheet" />
+
+</head>
+<body>
+	<div class="header row">
+		<div class="header-logo col-6 col-md-8">
+			<a href="/">
+				<h1 id="logo">PICKFLO</h1>
+			</a>
+		</div>
+		<div class="header-user col-6 col-md-3">
+			<div class="nickname"
+				th:text="${#authentication.principal.nickname} + '님'"></div>
+			<button class="menu-text" onclick="toggleMenu()">
+				<i class="bi bi-person-lines-fill"
+					style="font-size: 30px; color: white;"></i>
+			</button>
+			<div class="dropdown-menu" id="menu">
+				<a id="homeLink" href="/">홈</a> <a href="/movie/like">찜한
+					영화</a> <a href="/user/logout">로그아웃</a>
+			</div>
+		</div>
+	</div>
+	<div class="center-container row">
+		<div class="rec-movies col-8 col-md-5">
+			<h3 th:text="${#authentication.principal.nickname} + '님의 선호 영화'"></h3>	
+		</div>
+		<div class="searchBtn col-2 col-md-6">
+			<a href="/movie/search" class="btn" id="searchBtn"> <i
+				class="bi bi-search"></i>
+			</a>
+		</div>
+	</div>
+	<div>
+		<main>
+			<div class="list-wrap">
+				<div class="movie-list" id="movieListContainer">
+					<input id="userId" class="d-none"
+						th:value="${#authentication.principal.id}">
+					<div th:each="movie : ${movies}">
+						<div class="movie-card">
+							<img th:src="@{${movie.movieImg}}" class="poster-image"
+								th:data-movie-id="${movie.movieId}" data-bs-toggle="modal"
+								data-bs-target="#modalMovieDetails">
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<th:block th:replace="~{layout/fragments :: modalMovieDetails}">
+	</div>
+
+	<th:block th:replace="~{layout/fragments :: bootstrapJS}"></th:block>
+	<th:block th:replace="~{layout/fragments :: userHeaderJS}"></th:block>
+
+	<script src="/js/movie-like.js"></script>
+	<script src="/js/movie-details.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+
+</body>
+</html>

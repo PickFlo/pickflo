@@ -1,0 +1,163 @@
+@charset "UTF-8";
+
+.modal h6 {
+	margin-bottom: 20px;
+	font-size: 18px;
+	font-weight: 600;
+}
+
+.modal p, .modal span, .modal .badge {
+	margin-bottom: 0;
+	font-size: 16px;
+	font-weight: 400;
+}
+
+body.modal-open {
+	overflow: hidden;
+    overflow-y: hidden;
+}
+
+.modal {
+	color: white;
+}
+
+.modal-dialog {
+	max-width: 40%;
+}
+
+.modal-content {
+	background-color: black;
+	border: none;
+}
+
+.modal-header {
+	border-bottom: 2px solid black;
+	display: d-flex;
+	justify-content: end;
+}
+/*
+.btn-close {
+	background-color: white;;
+} */
+
+.closeBtn {
+	margin-top: 10px;
+	margin-right: 20px;
+	color: #bbbbbb;
+	cursor: pointer;
+}
+
+.closeBtn:hover {
+    color: white;
+}
+
+.modal-body {
+	padding: 0 25px;
+}
+
+.movie-poster-container {
+	text-align: center;
+}
+
+.modal #imgPoster {
+	width: 60%;
+	margin: 30px 0;
+	text-align: center;
+}
+
+.movie-info-container {
+	width: 100%;
+	padding: 25px;
+	background-color: #1c1f24;
+	border-radius: 8px;
+}
+
+.movie-title-container {
+	display: flex;
+	justify-content: space-between;
+}
+
+#title {
+	margin: 0 0 15px 0;
+	font-weight: 800;
+}
+
+#iconHeart {
+	font-size: 29px;
+}
+
+.movie-details-container {
+	padding: 0 10px 25px 10px;
+}
+
+.movie-details-section {
+	margin: 25px 0;
+}
+
+.hr-thick {
+	height: 2px;
+	margin: 0;
+	background-color: #fff;
+	border: none;
+}
+
+.modal .badge {
+	margin-right: 7px;
+	padding: 10px 15px;
+	background-color: #3b3f48;
+	color: white;
+}
+
+/* 특정 모달 내부의 스크롤바 스타일링 */
+.modal-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    background: #888 no-repeat center;
+    background-size: 16px 16px;
+}
+
+@media (max-width: 768px) {
+	.closeBtn {
+		margin-top: 20px;
+	}
+	
+	.modal h6 {
+		font-size: 16px;
+	}
+	
+	.modal p, .modal span, .modal .badge {
+		font-size: 14px;
+	}
+	
+	.modal-dialog {
+		max-width: 100%;
+	}
+	
+	.modal-content {
+		height: 70%;
+	}
+	
+	.modal-body {
+		padding: 0 20px;
+	}
+	
+	.modal #imgPoster {
+		width: 70%;
+	}
+	
+	#iconHeart {
+		font-size: 25px;
+	}
+	
+	.modal-body::-webkit-scrollbar {
+	    width: 2px;
+	}
+	
+	body.modal-open {
+		overflow-x: hidden; /* 수평 오버플로우만 숨김 */
+		overflow-y: auto;   /* 수직 오버플로우는 유지 */
+		/* overflow 속성 제거로 인해 원치 않는 레이아웃 변화 방지 */
+	}
+}

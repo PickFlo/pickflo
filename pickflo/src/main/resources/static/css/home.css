@@ -1,0 +1,157 @@
+@charset "UTF-8";  
+/*
+body {
+	background-color: #141414 !important;
+}
+*/
+.header #logo {
+	font-family: 'PartialSansKR-Regular', Arial, sans-serif;
+	font-size: 35px;
+	font-weight: normal;
+	background-color: transparent;
+	color: #E50913;
+}
+
+.header {
+	margin-top: 30px;
+	justify-content: center;
+	padding: 30px;
+}
+
+.header-logo {
+	display: flex;
+	justify-content: start;
+}
+
+.header-user {
+	display: flex;
+	justify-content: end;
+}
+
+.center-container {
+	margin-top: 40px;
+	display: flex;
+    align-items: center;
+    padding: 0 110px;
+}
+
+.rec-movies {
+	margin-left: 60px;
+    display: flex;
+    justify-content: start;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.searchBtn {
+	margin-right: 20px;
+	display: flex;
+    justify-content: end;
+}
+
+#searchBtn {
+	padding: 5px;
+	margin-right: 0px;
+	font-size: 25px;
+	background-color: transparent;
+	color: white;
+	border: none;
+	cursor: pointer;
+}
+
+.searchBtn:hover {
+	background-color: transparent;
+	color: #c3c3c3;
+}
+
+.list-wrap {
+	margin-top: 20px; 
+}
+
+.nickname {
+	margin-top: 7px;
+	margin-left: 20px;
+	font-size: 20px;
+}
+
+a {
+	text-decoration: none;
+}
+
+@media ( max-width : 768px) {
+	.header { 
+		margin-top: 10px; 
+	}
+	
+	.header #logo {
+		margin-top: 10px;
+		font-size: 25px;
+	} 
+	
+	
+	.header-logo {
+		margin-left: 0px;
+	}
+	.header-user {
+		margin-right: 0px;
+		font-size: 16px;
+	}
+	
+	.center-container { 
+		margin-top: 0px; 
+		padding: 0 10px;
+	}
+	
+	.rec-movies {
+		margin-left: 35px;
+		font-size: 18px;
+	}
+	
+	.rec-movies > h3 {
+		font-size: 18px;
+	}
+
+	#searchBtn {
+		margin-top: 0px;
+		font-size: 16px;
+	}
+	
+	.nickname {
+		margin-top: 10px;
+		font-size: 16px;
+	}
+}
+
+@media only screen and (min-width: 768px) and (max-width : 1024px) {
+	.rec-movies {
+		margin-left: 30px;
+		font-size: 18px;
+	}
+	
+	.rec-movies > h3 {
+		font-size: 18px;
+	}
+	
+	#searchBtn {
+		margin-top: 0px;
+		font-size: 16px;
+	}
+	
+}
+
+
+@media only screen and (min-width: 1024px) and (max-width : 1366px) {
+	.rec-movies {
+		margin-left: 35px;
+		font-size: 18px;
+	}
+	
+	.rec-movies > h3 {
+		font-size: 18px;
+	}
+
+	#searchBtn {
+		margin-top: 0px;
+		font-size: 16px;
+	}
+}

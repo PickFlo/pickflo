@@ -1,0 +1,164 @@
+@charset "UTF-8";
+
+@import
+	url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css')
+	;
+
+@font-face {
+	font-family: 'PartialSansKR-Regular';
+	src:
+		url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/PartialSansKR-Regular.woff2')
+		format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.home-link {
+	text-decoration: none;
+}
+
+#logo {
+	text-align: center; /* 부모 div 중앙 정렬 */
+	margin: 40px 0;
+	width: 100%;
+}
+
+#logo h1 {
+	font-family: 'PartialSansKR-Regular', Arial, sans-serif; /* 폰트 적용 */
+	font-size: 3rem; /* 글자 크기 */
+	font-weight: normal; /* 굵게 */
+	background-color: #141414; /* 배경 검정색 */
+	color: #E50913; /* 기본 폰트 색상 흰색 */
+}
+
+html, body, main {
+	background-color: #141414; /* 배경 검정색 */
+	color: #fff; /* 기본 폰트 색상 흰색 */
+}
+
+main {
+	margin-top: 100px;
+}
+
+body {
+	background-color: #141414 !important; /* 배경 검정색 */
+	color: #fff; /* 기본 폰트 색상 흰색 */
+}
+
+main .card {
+	width: 400px;
+	padding: 30px;
+	border: none;
+	background-color: #141414; /* 배경 검정색 */
+	color: #fff; /* 기본 폰트 색상 흰색 */
+}
+
+.card input {
+	height: 50px;
+	margin-top: 20px;
+	margin-bottom: 5px;
+	border: none;
+	border-radius: 0;
+	background-color: #141414; /* 입력 필드 배경 검정색 */
+	color: #fff; /* 입력 필드 텍스트 색상 흰색 */
+}
+
+.card input:focus {
+	outline: none;
+	box-shadow: none; /* 테두리 외곽에 생기는 그림자 제거 */
+}
+
+form input {
+	height: 40px;
+	margin-bottom: 10px;
+}
+
+.card {
+	margin: 0;
+	background-color: #141414;
+	color: white;
+}
+
+.form-control::placeholder {
+	color: white !important;
+	opacity: 1 !important;
+}
+
+#email, #password, #confirmPassword, #nickname, #birthdate {
+	border: none;
+	border-radius: 0;
+	border-bottom: 2px solid #fff;
+	background-color: #141414; /* 배경 검정색 */
+	color: #fff; /* 기본 폰트 색상 흰색 */
+}
+
+#btnSignUp {
+	height: 50px;
+	margin-top: 20px;
+	background-color: #E50913;
+	color: white;
+}
+
+#btnSignUp:hover {
+	height: 50px;
+	margin-top: 20px;
+	background-color: #e50913a6;
+	color: white;
+}
+
+.radio-group {
+	display: flex;
+	justify-content: center;
+	gap: 50px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.radio-group label {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.radio-group input[type="radio"] {
+	margin: 0;
+	height: auto;
+	width: auto;
+	vertical-align: middle;
+}
+
+@media ( max-width : 768px) {
+	main .card {
+		width: 90%;
+		padding: 20px;
+	}
+	main {
+		margin-top: 80px;
+	}
+}
+
+@media ( min-width: 768px ) and ( max-width: 1024px ) {
+	main .card {
+		width: 90%;
+		padding: 20px;
+		justify-content: center;
+
+	}
+	main {
+		margin-top: 80px;
+		padding: 40px;
+	}
+}
+
+@media ( min-width: 1024px ) and ( max-width: 1366px ) {
+	main .card {
+		width: 90%;
+		padding: 20px;
+		justify-content: center;
+
+	}
+	main {
+		margin-top: 200px;
+		padding: 40px;
+	}
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	<!-- <th:block th:replace="~{/layout/fragments :: documentHeader}"></th:block> -->
+		<th:block th:replace="~{layout/fragments :: documentHeader}"></th:block>
+		<link rel="stylesheet" href="/css/base.css">
+		<link rel="stylesheet" href="/css/movie-picker.css">
+	</head>
+	<body>
+		<main>
+			<div id="intro">
+				<input id="userId" class="d-none" th:value="${#authentication.principal.id}">
+				<p class="intro-title">어떤 영화를 좋아하세요?</p>
+				<p class="intro-text">
+					<span>취향인 영화를 <strong>3개 이상 </strong>선택하고 </span> 
+					<span>나에게 맞는 영화를 추천 받아보세요</span>
+				</p>
+				<div id="home" class="d-none">
+					<p>홈으로 가기</p>
+				</div>
+			</div>
+			<div id="layout"></div>
+		</main>
+		
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+		<!-- <th:block th:replace="~{/layout/fragments :: bootstrapJS}"></th:block> -->
+		<th:block th:replace="~{layout/fragments :: bootstrapJS}"></th:block>
+		
+		<script src="/js/movie-picker.js"></script>
+		
+	</body>
+</html>

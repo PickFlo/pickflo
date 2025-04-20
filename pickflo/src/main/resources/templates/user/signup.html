@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<link rel="stylesheet" href="/css/fragments.css">
+	<link rel="stylesheet" href="/css/signup.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+		    
+	<th:block th:replace="~{layout/fragments :: documentHeader}"></th:block>
+	
+<body>
+	
+		<main>
+			<div id="logo">
+				<a href="/user/signin" class="home-link">
+					<h1>PICKFLO</h1>
+				</a>
+			</div>
+			<div class="card card-body mx-auto">
+				<form id="myForm" th:action="@{/user/signup}" method="post">
+					<div class="input-container">
+						<input type="email" class="form-control" id="email" name="email"
+							placeholder="이메일" required autocomplete="off" /> <i
+							class="fa-solid fa-check d-none" style="color: #4caf50;"></i>
+						<div id="checkEmailResult" style="color: green;">@포함 입력해주세요.</div>
+					</div>
+					<div class="input-container">
+						<input type="password" class="form-control" id="password"
+							name="password" placeholder="비밀번호" required /> <i
+							class="fa-solid fa-check d-none" style="color: #4caf50;"></i> <input
+							type="password" class="form-control" id="confirmPassword"
+							placeholder="비밀번호 확인" required />
+						<div id="checkPasswordResult" style="color: green;">대소문자,특수문자,숫자
+							포함 8자 이상</div>
+					</div>
+					<div class="input-container">
+						<input type="text" class="form-control" id="nickname"
+							name="nickname" placeholder="닉네임" required  autocomplete="off" /> <i
+							class="fa-solid fa-check d-none" style="color: #4caf50;"></i>
+						<div id="checkNicknameResult" style="color: green;">영문자,숫자,한글,밑줄 및 점을 포함, 15자이내</div>
+					</div>
+					<div class="input-container">
+						<input type="text" class="form-control" id="birthdate"
+							name="birth" placeholder="생년월일" required />
+					</div>
+					<div class="input-radio-container">
+						<div class="radio-group">
+							<label> 
+								<input type="radio" name="gender" value="0" id="genderMale" /> 남성 
+							</label>
+							<label> 
+								<input type="radio" name="gender" value="1" id="genderFemale" /> 여성	
+							</label>
+						</div>
+					</div>
+					<button class="form-control btn" id="btnSignUp">작성 완료</button>
+				</form>
+			</div>
+		</main>
+
+		<th:block th:replace="~{layout/fragments :: bootstrapJS}"></th:block>
+		<th:block th:replace="~{layout/fragments :: footerContents}"></th:block>
+		<script src="/js/signup.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+		
+		<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+		<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ko.js"></script>
+		<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            flatpickr("#birthdate", {
+                dateFormat: "Y-m-d", // 원하는 날짜 형식
+                maxDate: "today", // 오늘 날짜까지 선택 가능
+                placeholder: "생년월일", // 플레인 텍스트 플레인 텍스트 사용
+                locale: "ko", // 한국어 설정
+                	disableMobile: true
+
+            });
+        }); 
+   		</script>
+    
+	</body>
+</html>
